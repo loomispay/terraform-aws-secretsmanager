@@ -10,7 +10,7 @@ module "kms_primary" {
 
   aliases                  = [format("alias/%v", module.this.id)]
   deletion_window_in_days  = local.deletion_window_in_days
-  enable_key_rotation      = false
+  enable_key_rotation      = true
   multi_region             = true
   key_usage                = "ENCRYPT_DECRYPT"
   customer_master_key_spec = "SYMMETRIC_DEFAULT"

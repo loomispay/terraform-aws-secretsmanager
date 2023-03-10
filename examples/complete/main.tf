@@ -1,5 +1,5 @@
 module "secrets" {
-  source = "git::https://github.com/loomispay/terraform-aws-secretsmanager.git?ref=feature/CIT-101-initial-version"
+  source = "git::https://github.com/loomispay/terraform-aws-secretsmanager.git"
 
   enabled = true
   namespace              = "important-domain-name"
