@@ -1,6 +1,6 @@
 locals {
   deletion_window_in_days = 30
-  create                  = module.this.enabled && var.kms_key_id == "" ? true : false
+  create                  = module.this.enabled && var.kms_key_id ? true : false
 }
 
 module "kms_primary" {
@@ -14,7 +14,7 @@ module "kms_primary" {
   multi_region             = true
   key_usage                = "ENCRYPT_DECRYPT"
   customer_master_key_spec = "SYMMETRIC_DEFAULT"
-  description              = "External key example"
+  description              = "KMS key to be used to encrypt the values for Secret Manager"
 
   tags                     = module.this.tags
 }

@@ -19,7 +19,9 @@ resource "aws_secretsmanager_secret_version" "default" {
   secret_string = each.value
 }
 
-# ============== READ SECRETS FROM SECRET MANAGER ==============
+#####################################################
+######## READ SECRETS FROM SECRET MANAGER ###########
+#####################################################
 
 data "aws_secretsmanager_secret_version" "default" {
   for_each  = var.secrets

@@ -30,29 +30,8 @@ The actual value should be updated via awscli or AWS console, and then, to refre
 
 ## Examples
 
-### Create
+Check [examples directory](./examples/complete)
 
-```
-module "secrets" {
-  source = "git::https://github.com/loomispay/terraform-aws-secretsmanager.git?ref=main"
-
-  namespace              = "marketing"
-  environment            = "prod"
-  name                   = "analytics-service"
-  secrets = {
-    secret_name_1 = "change_me"
-    secret_name_2 = "change_me"
-  }
-}
-```
-
-### Read
-
-```
-resource "null_resource" "secretsmanager" {
-  secret_value = module.secrets.secrets_values.secret_name_1
-}
-```
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
