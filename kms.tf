@@ -1,6 +1,6 @@
 locals {
   deletion_window_in_days = 30
-  create                  = module.this.enabled && var.kms_key_id ? true : false
+  create                  = alltrue([module.this.enabled, var.kms_key_id == null])
 }
 
 module "kms_primary" {
