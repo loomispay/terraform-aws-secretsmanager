@@ -1,6 +1,6 @@
 locals {
   deletion_window_in_days = 30
-  create                  = alltrue([module.this.enabled, var.kms_key_id == null])
+  create                  = alltrue([module.this.enabled, var.kms_key_alias == null])
 }
 
 module "kms_primary" {
