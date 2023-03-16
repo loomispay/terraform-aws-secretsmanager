@@ -3,10 +3,10 @@ resource "aws_secretsmanager_secret" "default" {
 
   name                    = each.key
   recovery_window_in_days = 30
-  kms_key_id              = try(module.kms_primary[0].key_id, var.kms_key_id)
+  kms_key_id              = try(module.kms_primary[0].key_id, var.kms_key_alias)
   replica {
     region     = var.replica_region
-    kms_key_id = try(module.kms_replica[0].key_id, var.kms_key_id)
+    kms_key_id = try(module.kms_replica[0].key_id, var.kms_key_alias)
   }
 
   tags = module.this.tags

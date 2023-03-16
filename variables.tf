@@ -9,8 +9,8 @@ variable "replica_region" {
   description = "Region for replicating the secret"
 }
 
-variable "kms_key_id" {
+variable "kms_key_alias" {
   type        = string
   default     = null
-  description = "ARN or Id of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. Provided KMS must be replicated to replica region"
+  description = "Alias of the AWS KMS key to be used to encrypt the secret values in the versions stored in this secret. Provided KMS must be replicated to replica region"
 }
