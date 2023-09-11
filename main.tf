@@ -2,6 +2,7 @@ resource "aws_secretsmanager_secret" "default" {
   for_each = var.enabled ? var.secrets : {}
 
   name                    = each.key
+  description             = each.value.description
   recovery_window_in_days = 30
   kms_key_id              = try(module.kms_primary[0].key_id, var.kms_key_alias)
   replica {
@@ -16,7 +17,7 @@ resource "aws_secretsmanager_secret_version" "default" {
   for_each = var.enabled ? var.secrets : {}
 
   secret_id     = aws_secretsmanager_secret.default[each.key].id
-  secret_string = each.value
+  secret_string = each.value.secret_string
 }
 
 #####################################################
