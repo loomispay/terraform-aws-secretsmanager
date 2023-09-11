@@ -1,5 +1,9 @@
 variable "secrets" {
-  type = map(string)
+  type = map(object({
+    secret_string = string
+    description   = string
+  }))
+  default = {}
   description = "A map of secrets name and value to be created"
 }
 
